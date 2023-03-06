@@ -1,6 +1,12 @@
 version: "2"
 services:
 
+# MongoDB
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+
 # Jaeger
 
   jaeger-all-in-one:
@@ -41,8 +47,11 @@ services:
       context: ./server/
     ports:
       - "5002:5002"
+    environment:
+      - MONGO_HOST=mongodb
     depends_on:
       - otel-collector
+      - mongodb
 
 # Prometheus
 
