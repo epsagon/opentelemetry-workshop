@@ -1,5 +1,3 @@
-# TODO: add OTel init here
-
 import logging
 from flask import Flask, request
 import sys
@@ -36,10 +34,10 @@ def fibHandler():
         minusTwoPayload = {'i': value - 2}
 
         respOne = requests.get(
-            'http://127.0.0.1:5001/fibInternal', minusOnePayload)
+            'http://127.0.0.1:5002/fibInternal', minusOnePayload)
 
         respTwo = requests.get(
-            'http://127.0.0.1:5001/fibInternal', minusTwoPayload)
+            'http://127.0.0.1:5002/fibInternal', minusTwoPayload)
 
         returnValue = int(respOne.content) + int(respTwo.content)
 
@@ -49,4 +47,4 @@ def fibHandler():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5002, debug=True, use_reloader=False)

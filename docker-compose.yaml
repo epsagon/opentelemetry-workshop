@@ -38,9 +38,9 @@ services:
   demo-server:
     build:
       dockerfile: Dockerfile
-      context: ./opentelemetry-workshop-python/
+      context: ./server/
     ports:
-      - "5001:5001"
+      - "5002:5002"
     depends_on:
       - otel-collector
 
