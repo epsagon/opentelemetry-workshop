@@ -64,9 +64,9 @@ services:
 
 # Grafana
 
-  grafana:
+  grafana-server:
     image: grafana/grafana:9.0.1
-    container_name: grafana
+    container_name: grafana-server
     volumes:
       - ./grafana/grafana.ini:/etc/grafana/grafana.ini
       - ./grafana/provisioning/:/etc/grafana/provisioning/
